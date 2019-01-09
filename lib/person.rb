@@ -11,28 +11,24 @@ class Person
         @happiness = 8
         @hygiene = 8
     end
-
+    
     def happiness=(happiness)
-        # binding.pry
-        if happiness > 10
-            @happiness = 10
-        elsif happiness < 0
-            @happiness = 0
-        else
-            @happiness = happiness
-        end
+        @happiness = check_value(happiness)
     end
-
+    
     def hygiene=(hygiene)
-        if hygiene > 10
-            @hygiene = 10
-        elsif hygiene < 0
-            @hygiene = 0
-        else
-            @hygiene = hygiene
-        end
+        @hygiene = check_value(hygiene)
     end
-
+    
+    def check_value(points)
+        if points > 10
+            return 10
+        elsif points < 0
+            return 0
+        end
+        return points
+    end
+    
     def happy?
         @happiness > 7 ? true : false
     end
@@ -77,13 +73,5 @@ class Person
             return "blah blah blah blah blah"
         end
     end
-    # def check_value(points)
-    #     if points > 10
-    #         return 10
-    #     elsif points < 0
-    #         return 0
-    #     end
-    #     return points
-    # end
 
 end
